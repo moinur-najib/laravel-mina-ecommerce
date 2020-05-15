@@ -6,29 +6,28 @@
 
       <div class="card">
         <div class="card-header">
-          Add Product
+          Edit Product
         </div>
         <div class="card-body">
-        <h1>Create Post</h1>
 
-          <form action="{{ route('admin.product.store') }}" method="post" enctype="multipart/form-data">
+          <form action="{{ route('admin.product.store', $products->id) }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="form-group">
               <label for="exampleInputEmail1">Title</label>
-              <input type="text" class="form-control" name="title" id="exampleInputEmail1">
+              <input type="text" class="form-control" name="title" id="exampleInputEmail1" value="{{ $products->title }}">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Description</label>
-              <textarea name="description" rows="8" cols="80" class="form-control"></textarea>
+              <textarea name="description" rows="8" cols="80" class="form-control">{{ $products->description }}</textarea>
 
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Price</label>
-              <input type="number" class="form-control" name="price" id="exampleInputEmail1">
+              <input type="number" class="form-control" name="price" id="exampleInputEmail1" value="{{ $products->price }}">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Quantity</label>
-              <input type="number" class="form-control" name="quantity" id="exampleInputEmail1">
+              <input type="number" class="form-control" name="quantity" id="exampleInputEmail1" value="{{ $products->quantity }}">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Product Image</label>
@@ -63,7 +62,7 @@
               </div>
             </div>
 
-            <button type="submit" class="btn btn-primary mb-3">Add Product</button>
+            <button type="submit" class="btn btn-primary mb-3">Save Changes</button>
             @include('admin.partials.messages')
 
           </form>
