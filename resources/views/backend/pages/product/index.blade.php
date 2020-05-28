@@ -44,7 +44,7 @@
                         </div>
                         <div class="modal-body">
                           
-                        <form action="{{ route('admin.product.delete', $product->id) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('admin.products.delete', $product->id) }}" method="post" enctype="multipart/form-data">
                           
                           <button type="submit" class="btn btn-danger">Delete</button>
                           @csrf

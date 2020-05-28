@@ -17,7 +17,13 @@ class ProductController extends Controller
 
     public function show($slug)
     {
-        $products = Product::orderBy('id', 'desc')->get();
-        return view('frontend.pages.product.index')->with('products', $products);
+        $product = Product::where('slug', $slug)->first();
+
+        if(!is_null($products)) {
+            return view('frontend.pages.product.show', compact('product'));
+        } else {
+            session()->flash('errors', 'Sorry, There is no product by this URL...');
+            return redirect()->route('products');
+        }
     }
 }

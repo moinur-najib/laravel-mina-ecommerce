@@ -10,60 +10,44 @@
         </div>
         <div class="card-body">
 
-          <form action="{{ route('admin.product.store', $products->id) }}" method="post" enctype="multipart/form-data">
+          <form action="{{ route('admin.category.update', $category->id) }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="form-group">
-              <label for="exampleInputEmail1">Title</label>
-              <input type="text" class="form-control" name="title" id="exampleInputEmail1" value="{{ $products->title }}">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" name="name" id="exampleInputEmail1" value="{{ $category->name }}">
             </div>
+
             <div class="form-group">
-              <label for="exampleInputPassword1">Description</label>
-              <textarea name="description" rows="8" cols="80" class="form-control">{{ $products->description }}</textarea>
+              <label for="exampleInputPassword1">Description (optional)</label>
+              <textarea name="description" rows="8" cols="80" class="form-control">{{ $category->name }}</textarea>
 
             </div>
+
             <div class="form-group">
-              <label for="exampleInputEmail1">Price</label>
-              <input type="number" class="form-control" name="price" id="exampleInputEmail1" value="{{ $products->price }}">
+              <label for="exampleInputPassword1">Parent Category (optional)</label>
+              <select name="parent_id" class="form-control">
+              <option value="">Please select a Primary category</option>
+                @foreach ($main_categories as $cat)
+                  <option value="{{ $cat->id }}" {{ $cat->id == $category->parent_id ? 'selected' : '' }}>{{ $cat->name }}</option>
+                @endforeach
+              </select>
+
             </div>
+
             <div class="form-group">
-              <label for="exampleInputEmail1">Quantity</label>
-              <input type="number" class="form-control" name="quantity" id="exampleInputEmail1" value="{{ $products->quantity }}">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Product Image</label>
-              <div class="row">
-                <div class="col-md-4">
-                    <input type="file" class="form-control" name="product_image[]" id="product_image">
-                </div>
-              </div>
+              <label for="image">Category Old Image</label>
 
-              <div class="row">
-                <div class="col-md-4">
-                    <input type="file" class="form-control" name="product_image[]" id="product_image">
-                </div>
-              </div>
+              
+              <img src="{{ asset('images/categories/'. $category->image) }}" style="width: 100px; height: 100px; display: block;"><br>
+              <br>
+              <label for="oldimage">Category New Image (optional)</label>
+              
 
-              <div class="row">
-                <div class="col-md-4">
-                    <input type="file" class="form-control" name="product_image[]" id="product_image">
+                    <input type="file" class="form-control" name="image" id="image">
                 </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-4">
-                    <input type="file" class="form-control" name="product_image[]" id="product_image">
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-4">
-                    <input type="file" class="form-control" name="product_image[]" id="product_image">
-                </div>
-              </div>
-            </div>
 
             <button type="submit" class="btn btn-primary mb-3">Save Changes</button>
-            @include('admin.partials.messages')
+            @include('backend.partials.messages')
 
           </form>
         </div>

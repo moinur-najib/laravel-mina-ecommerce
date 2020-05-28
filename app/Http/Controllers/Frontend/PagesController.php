@@ -12,7 +12,9 @@ class PagesController extends Controller
 {
     public function index()
     {
-      return view('frontend.pages.index');
+      $products = Product::orderBy('id', 'desc')->paginate(10);
+
+      return view('frontend.pages.index', compact('products'));
     }
 
     public function contact()
@@ -22,7 +24,8 @@ class PagesController extends Controller
 
     public function products()
     {
-        $products = Product::orderBy('id', 'desc')->get();
-        return view('frontend.pages.product.index')->with('products', $products);
+      $products = Product::orderBy('id', 'desc')->paginate(10);
+
+      return view('frontend.pages.product.index')->with('products', $products);
     }
 }

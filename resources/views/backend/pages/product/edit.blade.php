@@ -63,7 +63,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary mb-3">Save Changes</button>
-            @include('admin.partials.messages')
+            @include('backend.partials.messages')
 
           </form>
         </div>

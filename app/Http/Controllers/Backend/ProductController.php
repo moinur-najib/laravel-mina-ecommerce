@@ -58,24 +58,20 @@ class ProductController extends Controller
 
       // Product Image Model Insert Image
     
-      // if($request->hasFile('product_image')){
-      //   // inset image
-      //   $image = $request->file('product_image');
-      //   $img= time() . "." . $image->getClientOriginalExtension();
-      //   $location = public_path('images/products/' .$img);
+      // if($request->hasFile('image')) {
+      //   $image = $request->file('image');
+      //   $img = time() . '.' . $image->getClientOriginalExtension();
+      //   $location = public_path('images/categories/' .$img);
       //   Image::make($image)->save($location);
-
-      //   $product_image = new ProductImage;
-      //   $product_image->product_id = $product->id;
-      //   $product_image->image = $img;
-      //   $product_image->save();
-
+      //   $category->image = $img;
+      //   $category->save();
       // }
+
       if(count($request->product_image) > 0) {
         foreach($request->product_image as $image) {
           // insert image
-          $image = $request->file('product_image');
-          $img= time() . "." . $image->getClientOriginalExtension();
+          // $image = $request->file('product_image');
+          $img = time() . '.' . $image->getClientOriginalExtension();
           $location = public_path('images/products/' .$img);
           Image::make($image)->save($location);
 
@@ -83,11 +79,10 @@ class ProductController extends Controller
           $product_image->product_id = $product->id;
           $product_image->image = $img;
           $product_image->save();
-
         }
       }
-    
-    return redirect()->route('backend.product.create');
+
+    return redirect()->route('admin.product.create');
     }
 
     public function update(Request $request, $id)

@@ -11,26 +11,36 @@
 |
 */
 
-Route::get('/', 'PagesController@index')->name('index');
-Route::get('/contact', 'PagesController@contact')->name('contact');
-
-
-Route::get('/products', 'PagesController@products')->name('products');
-Route::post('/admin/product/delete/{$id}', 'AdminProductController@delete')->name('admin.product.delete');
+Route::get('/', 'Frontend\PagesController@index')->name('index');
+Route::get('/contact', 'Frontend\PagesController@contact')->name('contact');
+Route::get('/products', 'Frontend\PagesController@products')->name('products');
+Route::get('/product/{$slug}', 'Frontend\PagesController@show')->name('products.show');
 
 Route::group(['prefix' => 'admin'], function(){
-  Route::get('/', 'AdminPagesController@index')->name('admin.index');
+  Route::get('/', 'Backend\PagesController@index')->name('admin.index');
 
   // Product
     Route::group(['prefix' => '/product'], function(){
-
-      Route::get('/', 'AdminProductController@index')->name('admin.products');
-      Route::get('/create', 'AdminProductController@create')->name('admin.product.create');
-      Route::get('/edit/{id}', 'AdminProductController@edit')->name('admin.products.edit');
+      Route::get('/', 'Backend\ProductController@index')->name('admin.products');
+      Route::get('/create', 'Backend\ProductController@create')->name('admin.product.create');
+      Route::get('/edit/{id}', 'Backend\ProductController@edit')->name('admin.products.edit');
     
       // Post Requests
-      Route::post('/store', 'AdminProductController@store')->name('admin.product.store');
-      Route::post('/edit/{id}', 'AdminProductController@update')->name('admin.product.update');
+      Route::post('/store', 'Backend\ProductController@store')->name('admin.product.store');
+      Route::post('/delete/{id}', 'Backend\ProductController@delete')->name('admin.products.delete');
+
+    });
+
+    Route::group(['prefix' => '/categories'], function(){
+
+      Route::get('/', 'Backend\CategoriesController@index')->name('admin.categories');
+      Route::get('/create', 'Backend\CategoriesController@create')->name('admin.category.create');
+      Route::get('/edit/{id}', 'Backend\CategoriesController@edit')->name('admin.category.edit');
+    
+      // Post Requests
+      Route::post('/category/store', 'Backend\CategoriesController@store')->name('admin.category.store');
+      Route::post('/category/edit/{id}', 'Backend\CategoriesController@update')->name('admin.category.update');
+      Route::post('/category/delete/{id}', 'Backend\CategoriesController@delete')->name('admin.category.delete');
 
     });
 
