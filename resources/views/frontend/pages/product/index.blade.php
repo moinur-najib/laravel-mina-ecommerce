@@ -4,7 +4,7 @@
 @section('content')
 
   <!-- Start Sidebar + Content -->
-  <div class='container margin-top-20'>
+  <div class='container product-wrapper'>
     <div class="row">
       <div class="col-md-4">
 

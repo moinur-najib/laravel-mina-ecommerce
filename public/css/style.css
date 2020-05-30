@@ -1,22 +1,99 @@
-
 /**
  * Override CSS's
  */
- .bg-light {
-     background-color: #02aadd!important;
- }
 
-
-.margin-top-20{
-  margin-top: 20px;
-}
-.feature-img{
-  max-height: 200px
+/* 
+    Navbar
+*/
+.navbar {
+    background: rgb(54, 118, 255) !important;
 }
 
+.navbar-brand {
+    color: white !important;
+}
 
-.footer-bottom{
-  padding: 20px;
-  margin-top: 20px;
-  background: #02aadd;
+.nav-link {
+    color: white !important;
+}
+
+.nav-search-btn {
+    color: rgb(0, 0, 0);
+    background: white;
+}
+
+.navbar-brand:hover {
+    color: rgb(0, 255, 157) !important;
+}
+
+.nav-link:hover {
+    color: rgb(0, 255, 157) !important;
+}
+
+/* 
+    Product Sidebar
+*/
+
+.product-sidebar {
+    margin-right: 20px;
+}
+
+.product-sidebar .parent-img {
+    width: 50px;
+    margin-left: 10px;
+    margin-right: 15px;
+}
+
+.product-sidebar .child-img {
+    width: 45px;
+    margin-right: 5px;
+}
+
+.product-sidebar .child-rows {
+    padding-left: 20px;
+    border-left: 1px solid #dfdfdf;
+    background: rgb(54, 118, 255) !important;
+}
+.product-sidebar .child-rows a.list-group-item {
+    border-left: 0px !important;
+}
+
+/* 
+    Product Cards
+*/
+
+.product-card-title {
+    color: black;
+}
+
+.product-card-btn {
+    color: white;
+    border-radius: 50px;
+    background: rgb(54, 118, 255) !important;
+    padding: 10px 30px;
+}
+
+.product-card-btn:hover {
+    color: white;
+    border-radius: 50px;
+    background: rgb(15, 68, 180) !important;
+    padding: 10px 30px;
+}
+
+.product-wrapper {
+    margin-top: 40px;
+}
+.feature-img {
+    max-height: 200px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Height of the footer */
+}
+
+.product-item {
+    background: lightblue;
 }

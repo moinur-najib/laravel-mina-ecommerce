@@ -11,7 +11,7 @@
         <div class="card-body">
         <h1>Create Post</h1>
 
-          <form action="{{ route('admin.category.store') }}" method="post" enctype="multipart/form-data">
+          <form action="{{ route('admin.brand.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
               <label for="name">Name *</label>
@@ -25,18 +25,7 @@
             </div>
 
             <div class="form-group">
-              <label for="exampleInputPassword1">Parent Category</label>
-              <select name="parent_id" class="form-control">
-              <option value="">Please select a Primary category</option>
-                @foreach ($main_categories as $cat)
-                  <option value="{{ $cat->id }}">{{ $cat->name }}</option>
-                @endforeach
-              </select>
-
-            </div>
-
-            <div class="form-group">
-              <label for="image">Category Image</label>
+              <label for="image">brand Image</label>
               
 
                     <input type="file" class="form-control" name="image" id="image">

@@ -9,20 +9,24 @@
 
                 @foreach ($product->images as $image)
                     @if ($i > 0)
-                        <img class="card-img-top feature-img" src="{{ asset('images/products/'. $image->image) }}" alt="Card image" >
+                        <a href=" {{ route('products.show', $product->slug) }} ">
+                            <img style="max-height: 200px;" class="card-img-top feature-img" src="{{ asset('images/products/'. $image->image) }}" alt="{{ $product->title }}" >
+                        </a>
                     @endif
 
                     @php $i--; @endphp
-                    @endforeach
+                @endforeach
 
 
 
-                    <div class="card-body">
+                    <div class="card-body text-center">
                         <h4 class="card-title">
-                          <a href=" {{ route('products.show', $product->slug) }} ">{{ $product->title }}</a>
+                          <a class="product-card-title" href=" {{ route('products.show', $product->slug) }} ">{{ $product->title }}</a>
                         </h4>
-                        <p class="card-text">Taka - {{ $product->price }}</p>
-                        <a href="#" class="btn btn-outline-warning">Add to cart</a>
+                        <p class="card-text">{{ $product->price }}$</p>
+
+                            <a href="#" class="product-card-btn btn btn-outline-warning">Add to cart</a>
+
                       </div>
                 </div>
             </div>
