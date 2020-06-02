@@ -37,7 +37,7 @@
 
       <div class="col-md-8">
         <div class="widget">
-          <h3>{{ $product->title }}</h3>
+          <h3>{{ $product->title }} in <mark> {{ $product->category->name }} </mark></h3>
           <h3>{{ $product->price }} $ 
           <br>
             <span class="badge badge-warning">

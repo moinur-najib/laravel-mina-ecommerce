@@ -1,16 +1,16 @@
 <div class="row">
 
-    @foreach ($products as $product)
+    @foreach ($products as $products)
 
         <div class="col-md-4">
             <div class="card">
         
                 @php $i = 1; @endphp
 
-                @foreach ($product->images as $image)
+                @foreach ($products->images as $image)
                     @if ($i > 0)
-                        <a href=" {{ route('products.show', $product->slug) }} ">
-                            <img style="max-height: 200px;" class="card-img-top feature-img" src="{{ asset('images/products/'. $image->image) }}" alt="{{ $product->title }}" >
+                        <a href=" {{ route('products.show', $products->slug) }} ">
+                            <img style="max-height: 200px;" class="card-img-top feature-img" src="{{ asset('images/products/'. $image->image) }}" alt="{{ $products->title }}" >
                         </a>
                     @endif
 
@@ -21,9 +21,9 @@
 
                     <div class="card-body text-center">
                         <h4 class="card-title">
-                          <a class="product-card-title" href=" {{ route('products.show', $product->slug) }} ">{{ $product->title }}</a>
+                          <a class="product-card-title" href=" {{ route('products.show', $products->slug) }} ">{{ $products->title }}</a>
                         </h4>
-                        <p class="card-text">{{ $product->price }}$</p>
+                        <p class="card-text">{{ $products->price }}$</p>
 
                             <a href="#" class="product-card-btn btn btn-outline-warning">Add to cart</a>
 
@@ -33,7 +33,4 @@
 
     @endforeach
 
-</div>
-<div class="mt-5 pagination">
-    {{ $products->links() }}
 </div>

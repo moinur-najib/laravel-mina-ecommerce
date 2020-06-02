@@ -9,7 +9,8 @@
           Add Product
         </div>
         <div class="card-body">
-        <h1>Create Post</h1>
+        <h1>Create Product</h1>
+        @include('backend.partials.messages')
 
           <form action="{{ route('admin.product.store') }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
@@ -47,7 +48,7 @@
 
             <div class="form-group">
               <label for="exampleInputEmail1">Select Brand</label>
-              <select class="form-control" name="Brand_id">
+              <select class="form-control" name="brand_id">
               <option value="">Please select a Brand for the product</option>
                 @foreach (App\Models\Brand::orderBy('name', 'asc')->get() as $brand)
                   <option value="{{ $brand->id }}">{{ $brand->name }}</option>
@@ -88,7 +89,6 @@
             </div>
 
             <button type="submit" class="btn btn-primary mb-3">Add Product</button>
-            @include('backend.partials.messages')
 
           </form>
         </div>

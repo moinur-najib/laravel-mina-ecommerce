@@ -17,6 +17,17 @@ Route::get('/products', 'Frontend\ProductController@index')->name('products');
 Route::get('/product/{slug}', 'Frontend\ProductController@show')->name('products.show');
 Route::get('/search', 'Frontend\PagesController@search')->name('search');
 
+Route::group(['prefix' => 'products'], function(){
+  
+  Route::get('/', 'Frontend\ProductController@index')->name('products');
+  Route::get('/{slug}', 'Frontend\ProductController@show')->name('products.show');
+  Route::get('/search', 'Frontend\PagesController@search')->name('search');
+
+  Route::get('/categories', 'Frontend\CategoriesController@index')->name('categories.index');
+  Route::get('/category/{id}', 'Frontend\CategoriesController@show')->name('categories.show');
+  
+});
+
 Route::group(['prefix' => 'admin'], function(){
   Route::get('/', 'Backend\PagesController@index')->name('admin.index');
 
