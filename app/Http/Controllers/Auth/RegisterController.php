@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -32,7 +33,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -43,6 +44,13 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+    /**
+     * @override
+     * showRegistrationForm
+     * 
+     * Display the registration form
+     * @return void view
+     */
 
     public function showRegistrationForm () {
         $divisions = Divisions::orderBy('priority', 'asc')->get();
@@ -77,22 +85,24 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function register(Request $request)
     {
         $user = User::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'username' => Str::slug($data['first_name'].$data['last_name']),
-            'division_id' => $data['division_id'],
-            'district_id' => $data['district_id'],
-            'phone_no' => $data['phone_no'],
-            'street_adress' => $data['street_adress'],
-            'ip_adress' => request()->ip(),
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'username' => Str::slug($request->first_name.$request->last_name),
+            'division_id' => $request->division_id,
+            'district_id' => $request->district_id,
+            'phone_no' => $request->phone_no,
+            'street_adress' => $request->street_adress,
+            'ip_address' => request()->ip(),
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
             'remember_token' => Str::random(50),
             'status' => 0,
         ]);
-
+        
+        session()->flash('success', 'A confirmed email has been sent to you. Please check your email and verify');
+        return redirect('/');
     }
 }
