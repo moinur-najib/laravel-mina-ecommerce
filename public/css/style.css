@@ -1,0 +1,106 @@
+/**
+ * Override CSS's
+ */
+
+/* 
+    Navbar
+*/
+.navbar {
+    background: rgb(54, 118, 255) !important;
+}
+
+.navbar-brand {
+    color: white !important;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.nav-search-btn {
+    color: rgb(0, 0, 0);
+    background: white;
+}
+
+.navbar-brand:hover {
+    color: rgb(0, 255, 157) !important;
+}
+
+.nav-link:hover {
+    color: rgb(0, 255, 157) !important;
+}
+
+/* 
+    Product Sidebar
+*/
+
+.product-sidebar {
+    margin-right: 20px;
+}
+
+.product-sidebar .parent-img {
+    width: 50px;
+    margin-left: 10px;
+    margin-right: 15px;
+}
+
+.product-sidebar .child-img {
+    width: 45px;
+    margin-right: 5px;
+}
+
+.product-sidebar .child-rows {
+    padding-left: 20px;
+    border-left: 1px solid #dfdfdf;
+    background: rgb(54, 118, 255) !important;
+}
+.product-sidebar .child-rows a.list-group-item {
+    border-left: 0px !important;
+}
+
+/* 
+    Product Cards
+*/
+.product-card {
+    width: 250px;
+    max-width: 300px;
+    max-height: auto;
+}
+
+.product-card-title {
+    color: black;
+}
+
+.product-card-btn {
+    color: white;
+    border-radius: 50px;
+    background: rgb(54, 118, 255) !important;
+    padding: 10px 30px;
+}
+
+.product-card-btn:hover {
+    color: black;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0) !important;
+    padding: 10px 30px;
+}
+
+.product-wrapper {
+    margin-top: 40px;
+}
+.feature-img {
+    max-height: 200px;
+}
+
+footer {
+    background-color: rgb(54, 118, 255);
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 13px;
+    position: relative;
+    margin-bottom: 0px;
+}
+
+.product-item {
+    background: lightblue;
+}
