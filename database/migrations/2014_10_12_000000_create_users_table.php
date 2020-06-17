@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->text('shipping_adress')->nullable();
 
+            $table->timestamp('email_varified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

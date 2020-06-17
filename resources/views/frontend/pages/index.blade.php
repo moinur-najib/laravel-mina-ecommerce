@@ -3,6 +3,8 @@
 
 @section('content')
 
+@include('backend.partials.messages')
+
   <!-- Start Sidebar + Content -->
   <div class='product-wrapper'>
     <div class="row">
