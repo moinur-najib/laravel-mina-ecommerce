@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('phone_no', 255);
             $table->string('email', 255);
             $table->string('password');
+            $table->timestamp('email_verified_at')->nullable();
 
             $table->string('street_adress');
             $table->unsignedInteger('division_id')->comment('Division Table Id');
@@ -31,7 +32,6 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->text('shipping_adress')->nullable();
 
-            $table->timestamp('email_varified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
