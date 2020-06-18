@@ -19,6 +19,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'first_name', 'last_name', 'username', 'phone_no', 'district_id', 'division_id', 'street_adress', 'email', 'password', 'ip_adress', 'remember_token',
     ];
 
+    
+
     /**
      * The attributes that should be hidden for arrays.
      *

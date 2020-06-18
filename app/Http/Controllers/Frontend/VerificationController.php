@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\User;
+
 class VerificationController extends Controller
 {
     public function verify ($token) {

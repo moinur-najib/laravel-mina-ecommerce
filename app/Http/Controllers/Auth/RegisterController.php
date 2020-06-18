@@ -103,6 +103,6 @@ class RegisterController extends Controller
         ]);
         
         // session()->flash('success', 'A confirmed email has been sent to you. Please check your email and verify');
-        // return route('verification.notice');
+        // return route('index');
     }
 }

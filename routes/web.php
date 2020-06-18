@@ -104,4 +104,6 @@ Route::group(['prefix' => 'admin'], function(){
 
 Auth::routes(['verify' => true]);
 
+Route::get('/email/verify/{id}/{token}', 'Controller@index')->name('home');
+
 Route::get('/home', 'HomeController@index')->name('home');
