@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\VerifyEmail;
+
+
 
 Route::get('/', 'Frontend\PagesController@index')->name('index');
 Route::get('/contacts', 'Frontend\PagesController@contact')->name('contacts');
@@ -27,7 +31,6 @@ Route::group(['prefix' => 'products'], function(){
   
 });
 // User Routes
-Route::get('/token/{token}', 'Frontend\VerificationController@verify')->name('user.verification');
 
 Route::group(['prefix' => 'admin'], function(){
   Route::get('/', 'Backend\PagesController@index')->name('admin.index');
@@ -99,11 +102,15 @@ Route::group(['prefix' => 'admin'], function(){
 
   
 });
+Route::group(['prefix' => '/user'], function(){
+  Route::get('/token/{token}', 'Frontend\VerificationController@verify')->name('user.verification');
+  Route::get('/dashboard', 'Frontend\UsersController@dashboard')->name('user.dashboard');
+  Route::get('/profile', 'Frontend\UsersController@profile')->name('user.profile');
+  Route::post('/profile/update', 'Frontend\UsersController@profileUpdate')->name('user.profile.update');
+});
+
+Auth::routes();
 
 
-
-Auth::routes(['verify' => true]);
-
-Route::get('/email/verify/{id}/{token}', 'Controller@index')->name('home');
 
 Route::get('/home', 'HomeController@index')->name('home');

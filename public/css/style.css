@@ -1,7 +1,14 @@
 /**
  * Override CSS's
  */
+html {
+    height: 100%;
+}
 
+body {
+    position: relative;
+    min-height: 100%;
+}
 /* 
     Navbar
 */
@@ -30,6 +37,13 @@
     color: rgb(0, 255, 157) !important;
 }
 
+.profile-image {
+    border-color: black;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 40px;
+    height: auto;
+}
 /* 
     Product Sidebar
 */
@@ -105,6 +119,9 @@ footer {
     background: lightblue;
 }
 
+.pointer {
+    cursor: pointer;
+}
 footer {
     position: absolute;
     bottom: 0;

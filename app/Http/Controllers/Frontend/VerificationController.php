@@ -15,10 +15,11 @@ class VerificationController extends Controller
         if (!is_null($user)) {
             $user->status = 1;
             $user->remember_token = NULL;
+            $user->save();
             session()->flash('success', 'You are registered successfully!Login now');
             return redirect('login');
         } else {
-            session()->flash('errors', 'Sorry, your token is not matched');
+            session()->flash('errors', 'Sorry, your token didn\'t matched');
             return redirect('/');
         }
     }
