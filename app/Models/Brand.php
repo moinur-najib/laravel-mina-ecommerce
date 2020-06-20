@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Brand extends Model
 {
+    public $fillable = [
+        'name', 
+        'description', 
+        'image'
+    ];
+
     public function parent()
     {
         return $this->belongsTo(Category::class, 'parent_id');

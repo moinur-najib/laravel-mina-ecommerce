@@ -15,7 +15,21 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('user_id')->nullable();
+            $table->string('ip_adress')->nullable();
+            $table->text('name');
+            $table->string('phone_no');
+            $table->text('shipping_adress');
+            $table->string('email')->nullable();
+            $table->text('message')->nullable();
+            $table->boolean('is_paid')->default(0);
+            $table->boolean('is_completed')->default(0);
+            $table->boolean('is_seen_by_admin')->default(0);
             $table->timestamps();
+
+            $table->foreign('user_id')
+            ->references('id')->on('users')
+            ->onDelete('cascade');
         });
     }
 

@@ -34,6 +34,17 @@
       </ul>
       
       <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('carts') }}">
+            <button class="btn btn-primary">
+              <p class="d-inline">Cart</p>
+              
+              <span class="badge badge-danger"> 
+              {{ App\Models\Cart::totalItems() }}
+               </span>
+            </button>
+          </a>
+        </li>
       @guest
         <li class="nav-item">
           <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

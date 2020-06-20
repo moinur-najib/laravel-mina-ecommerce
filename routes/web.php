@@ -109,6 +109,12 @@ Route::group(['prefix' => '/user'], function(){
   Route::post('/profile/update', 'Frontend\UsersController@profileUpdate')->name('user.profile.update');
 });
 
+Route::group(['prefix' => '/cart'], function(){
+  Route::get('/', 'Frontend\CartsController@index')->name('carts');
+
+  Route::post('/store', 'Frontend\CartsController@store')->name('carts.store');
+});
+
 Auth::routes();
 
 
