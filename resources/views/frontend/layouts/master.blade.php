@@ -2,31 +2,33 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <title>
-    @yield('title', 'laravel ecommerce project')
-  </title>
+    <meta charset="utf-8">
+    <title>
+        @yield('title', 'laravel ecommerce project')
+    </title>
 
-  @include('frontend.partials.styles')
+    @include('frontend.partials.styles')
 </head>
 
 <body>
 
-  <div class="wrapper">
+    <div class="wrapper">
+        @include('frontend.partials.nav')
+        @include('frontend.partials.messages')
+        <!-- <canvas></canvas>
 
-    @include('frontend.partials.nav')
-    @include('frontend.partials.messages')
+        <script src="{{ asset('js/canvas.js') }}"></script> -->
+        @yield('content')
 
-    @yield('content')
-
-    @include('frontend.partials.footer')
-
-
-  </div>
+        @include('frontend.partials.footer')
 
 
-  @include('frontend.partials.scripts')
-  @yield('scripts')
+
+    </div>
+
+    @include('frontend.partials.scripts')
+    @yield('scripts')
+
 </body>
 
 </html>

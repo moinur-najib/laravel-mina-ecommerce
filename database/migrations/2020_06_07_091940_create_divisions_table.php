@@ -18,10 +18,6 @@ class CreateDivisionsTable extends Migration
             $table->string('name');
             $table->unsignedTinyInteger('priority')->default(1);
             $table->timestamps();
-
-            $table->foreign('divisions_id')
-            ->references('id')->on('divisionss')
-            ->onDelete('cascade');
         });
     }
 

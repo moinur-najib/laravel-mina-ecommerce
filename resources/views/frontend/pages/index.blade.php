@@ -4,7 +4,9 @@
 
 
 <!-- Start Sidebar + Content -->
+
 <div class='product-wrapper'>
+
     <div class="row">
         <div class="col-md-4">
             @include('frontend.partials.product-sidebar')
@@ -16,7 +18,6 @@
                 @include('frontend.pages.product.partials.all_products')
             </div>
             <div class="widget">
-
             </div>
         </div>
 

@@ -18,6 +18,10 @@ class CreateDistrictsTable extends Migration
             $table->string('name');
             $table->unsignedInteger('division_id');
             $table->timestamps();
+
+             $table->foreign('division_id')
+            ->references('id')->on('divisionss')
+            ->onDelete('cascade');
         });
     }
 

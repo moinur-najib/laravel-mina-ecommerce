@@ -46,14 +46,16 @@ class CartsController extends Controller
             ->first();
         }
 
-        $cart = Cart::orWhere('user_id', Auth::id())
-                    ->orWhere('ip_adress', request()->ip())
-                    ->Where('product_id', $request->product_id)
-                    ->first();
+        // $cart = Cart::orWhere('user_id', Auth::id())
+        //             ->orWhere('ip_adress', request()->ip())
+        //             ->Where('product_id', $request->product_id)
+        //             ->first();
 
         if(!is_null($cart)) {
+            // dd($request->product_id);
             $cart->increment('product_quantity');
         } else {
+            // dd('test');
             $cart = new Cart();
             if(Auth::check()) {
     
