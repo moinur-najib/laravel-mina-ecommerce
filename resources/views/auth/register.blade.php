@@ -13,7 +13,9 @@
                             <label for="first_name" class="col-md-4 col-form-label text-md-right">First Name</label>
 
                             <div class="col-md-6">
-                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
+                                <input id="first_name" type="text"
+                                    class="form-control @error('first_name') is-invalid @enderror" name="first_name"
+                                    value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
 
                                 @error('first_name')
                                 <span class="invalid-feedback" role="alert">
@@ -27,7 +29,9 @@
                             <label for="last_name" class="col-md-4 col-form-label text-md-right">Last Name</label>
 
                             <div class="col-md-6">
-                                <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
+                                <input id="last_name" type="text"
+                                    class="form-control @error('last_name') is-invalid @enderror" name="last_name"
+                                    value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
 
                                 @error('last_name')
                                 <span class="invalid-feedback" role="alert">
@@ -41,7 +45,8 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">E-mail Adress</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                    name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -55,7 +60,9 @@
                             <label for="phone_no" class="col-md-4 col-form-label text-md-right">Phone Number</label>
 
                             <div class="col-md-6">
-                                <input id="phone_no" type="text" class="form-control @error('phone_no') is-invalid @enderror" name="phone_no" value="{{ old('phone_no') }}" required autocomplete="phone_no" autofocus>
+                                <input id="phone_no" type="text"
+                                    class="form-control @error('phone_no') is-invalid @enderror" name="phone_no"
+                                    value="{{ old('phone_no') }}" required autocomplete="phone_no" autofocus>
 
                                 @error('phone_no')
                                 <span class="invalid-feedback" role="alert">
@@ -69,7 +76,10 @@
                             <label for="phone_no" class="col-md-4 col-form-label text-md-right">Street adress</label>
 
                             <div class="col-md-6">
-                                <input id="street_adress" type="text" class="form-control @error('street_adress') is-invalid @enderror" name="street_adress" value="{{ old('street_adress') }}" required autocomplete="street_adress" autofocus>
+                                <input id="street_adress" type="text"
+                                    class="form-control @error('street_adress') is-invalid @enderror"
+                                    name="street_adress" value="{{ old('street_adress') }}" required
+                                    autocomplete="street_adress" autofocus>
 
                                 @error('street_adress')
                                 <span class="invalid-feedback" role="alert">
@@ -81,7 +91,8 @@
 
 
                         <div class="form-group row">
-                            <label for="division_id" class="col-md-4 col-form-label text-md-right">{{ __('Division') }}</label>
+                            <label for="division_id"
+                                class="col-md-4 col-form-label text-md-right">{{ __('Division') }}</label>
 
                             <div class="col-md-6">
                                 <select class="form-control" name="division_id">
@@ -95,7 +106,8 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="district_id" class="col-md-4 col-form-label text-md-right">{{ __('District') }}</label>
+                            <label for="district_id"
+                                class="col-md-4 col-form-label text-md-right">{{ __('District') }}</label>
 
                             <div class="col-md-6">
                                 <select class="form-control" name="district_id">
@@ -112,10 +124,13 @@
 
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password"
+                                class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password"
+                                    class="form-control @error('password') is-invalid @enderror" name="password"
+                                    required autocomplete="new-password">
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -126,10 +141,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm"
+                                class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control"
+                                    name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
 

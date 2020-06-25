@@ -12,6 +12,12 @@ use App\Models\ProductImage;
 use Image;
 class ProductController extends Controller
 {
+
+  public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+    
   public function index()
   {
     $products = Product::orderBy('id', 'desc')->get();
