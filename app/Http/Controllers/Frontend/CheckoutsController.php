@@ -64,13 +64,13 @@ class CheckoutsController extends Controller
         }
 
         $payment_id = Payment::where('short_name', $request->payment_method_id)->first()->id;
+        $order->payment_id = $payment_id;
         $order->save();
 
         foreach (Cart::totalCarts() as $cart) {
             $cart->order_id = $order->id;
             $cart->save();
         }
-
         session()->flash('success', 'Your order has been taken successfully!Please wait till admin confirms it');
         return redirect()->route('index');
     }

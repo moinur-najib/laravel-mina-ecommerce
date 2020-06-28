@@ -38,6 +38,15 @@ Route::group(['prefix' => 'admin'], function () {
   Route::post('/login/submit', 'Auth\Admin\LoginController@login')->name('admin.login.submit');
   Route::post('/logout/submit', 'Auth\Admin\LoginController@logout')->name('admin.logout');
 
+  // Password Email send
+  Route::get('/password/reset', 'Auth\Admin\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+  Route::post('/password/resetPost', 'Auth\Admin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+
+  // Password Reset
+  Route::get('/password/reset/{token}', 'Auth\Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
+  Route::post('/password/reset', 'Auth\Admin\ResetPasswordController@reset')->name('admin.password.reset.post');
+
+
   // Product
   Route::group(['prefix' => '/product'], function () {
     Route::get('/', 'Backend\ProductController@index')->name('admin.products');
@@ -47,6 +56,15 @@ Route::group(['prefix' => 'admin'], function () {
     // Post Requests
     Route::post('/store', 'Backend\ProductController@store')->name('admin.product.store');
     Route::post('/delete/{id}', 'Backend\ProductController@delete')->name('admin.products.delete');
+  });
+
+  Route::group(['prefix' => '/orders'], function () {
+
+    Route::get('/', 'Backend\OrdersController@index')->name('admin.orders');
+    Route::get('/view/{id}', 'Backend\OrdersController@show')->name('admin.order.show');
+    Route::post('/delete/{id}', 'Backend\OrdersController@delete')->name('admin.order.delete');
+    Route::post('/completed/{id}', 'Backend\OrdersController@completed')->name('admin.order.completed');
+    Route::post('/paid/{id}', 'Backend\OrdersController@paid')->name('admin.order.paid');
   });
 
   Route::group(['prefix' => '/categories'], function () {
@@ -60,6 +78,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/category/edit/{id}', 'Backend\CategoriesController@update')->name('admin.category.update');
     Route::post('/category/delete/{id}', 'Backend\CategoriesController@delete')->name('admin.category.delete');
   });
+
 
   Route::group(['prefix' => '/brands'], function () {
 

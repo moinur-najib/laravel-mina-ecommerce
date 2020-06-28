@@ -5,8 +5,7 @@
     <div class="content-wrapper">
 
         <div class="card card-body">
-            <h2 class="text-center">Welcome to your Admin Panel! <span>
-                    {{ Auth::check() ? 'you are logged in!' : 'You are so not logged in mission failed' }} </span></h2>
+            <h2 class="text-center">Welcome to your Admin Panel!</h2>
             <br>
             <br>
             <a href="{{ route('index') }}" class="btn btn-primary btn-lg">Visit Main Site</a>

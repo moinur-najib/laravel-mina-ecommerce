@@ -6,7 +6,7 @@
 
         <div class="card">
             <div class="card-header">
-                Manage Products
+                Manage Orders
             </div>
             <div class="card-body">
                 @include('backend.partials.messages')
@@ -15,31 +15,51 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Product Code</th>
-                            <th>Product Title</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
+                            <th>Order ID</th>
+                            <th>Orderes Name</th>
+                            <th>Orderes Phone no</th>
+                            <th>ORder Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        @foreach($products as $product)
+                        @foreach($orders as $order)
                         <tr>
-
-                            <td>{{ $product->id }}</td>
-                            <td>#PLE{{ $product->id }}</td>
-                            <td>{{ $product->title }}</td>
-                            <td>{{ $product->price }}</td>
-                            <td>{{ $product->quantity }}</td>
+                            <td> {{ $loop->index + 1 }} </td>
+                            <td>#LE{{ $order->id }}</td>
+                            <td>{{ $order->name }}</td>
+                            <td>{{ $order->phone_no }}</td>
                             <td>
-                                <a href="{{ route('admin.products.edit', $product->id) }}"
-                                    class="btn btn-success">Edit</a>
+                                <p>@if($order->is_seen_by_admin)
+                                    <button type="button" class="btn btn-success">Seen</button>
+                                    @else
+                                    <button type="button" class="btn btn-warning">Unseen</button>
+                                    @endif
+                                </p>
 
-                                <a href="#deleteModal{{ $product->id }}" class="btn btn-warning" data-toggle="modal"
-                                    data-target="#deleteModal{{ $product->id }}">Delete</a>
+                                <p>@if($order->is_completed)
+                                    <button type="button" class="btn btn-success">Completed</button>
+                                    @else
+                                    <button type="button" class="btn btn-warning">Uncompleted</button>
+                                    @endif
+                                </p>
+
+                                <p>@if($order->is_paid)
+                                    <button type="button" class="btn btn-success">Paid</button>
+                                    @else
+                                    <button type="button" class="btn btn-danger">Unpaid</button>
+                                    @endif
+                                </p>
+                            </td>
+                            <td>
+                                <a href=" {{ route('admin.order.show', $order->id) }} " class="btn btn-info">View
+                                    Order</a>
+
+                                <a href="#deleteModal{{ $order->id }}" class="btn btn-danger" data-toggle="modal"
+                                    data-target="#deleteModal{{ $order->id }}">Delete</a>
                                 <!-- Modal -->
-                                <div class="modal fade" id="deleteModal{{ $product->id }}" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="deleteModal{{ $order->id }}" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -54,7 +74,7 @@
                                             </div>
                                             <div class="modal-body">
 
-                                                <form action="{{ route('admin.products.delete', $product->id) }}"
+                                                <form action="{{ route('admin.order.delete', $order->id) }}"
                                                     method="post" enctype="multipart/form-data">
 
                                                     <button type="submit" class="btn btn-danger">Delete</button>
@@ -73,22 +93,20 @@
 
                         </tr>
                         @endforeach
-                    </tbody>
                     <tfoot>
                         <tr>
                             <th>#</th>
-                            <th>Product Code</th>
-                            <th>Product Title</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
+                            <th>Order ID</th>
+                            <th>Orderes Name</th>
+                            <th>Orderes Phone no</th>
+                            <th>ORder Status</th>
                             <th>Action</th>
                         </tr>
                     </tfoot>
+                    </tbody>
                 </table>
-
             </div>
         </div>
-
     </div>
 </div>
 <!-- main-panel ends -->

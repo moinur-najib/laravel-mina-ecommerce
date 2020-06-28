@@ -31,6 +31,19 @@
          </li>
 
          <li class="nav-item">
+             <a class="nav-link" data-toggle="collapse" href="#order-pages" aria-expanded="false"
+                 aria-controls="order-pages"> <img class="menu-icon" src="/images/menu_icons/08.png"> <span
+                     class="menu-title">Manage Orders</span><i class="menu-arrow"></i></a>
+             <div class="collapse" id="order-pages">
+                 <ul class="nav flex-column sub-menu">
+
+                     <li class="nav-item"> <a class="nav-link" href="{{ route('admin.orders') }}">Manage Orders</a>
+                     </li>
+                 </ul>
+             </div>
+         </li>
+
+         <li class="nav-item">
              <a class="nav-link" data-toggle="collapse" href="#category-pages" aria-expanded="false"
                  aria-controls="general-pages"> <img class="menu-icon" src="/images/menu_icons/08.png"> <span
                      class="menu-title">Manage Categories</span><i class="menu-arrow"></i></a>

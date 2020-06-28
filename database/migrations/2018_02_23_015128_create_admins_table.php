@@ -21,8 +21,8 @@ class CreateAdminsTable extends Migration
             $table->string('phone_no')->nullable();
             $table->string('avatar')->nullable();
             $table->string('type')->default('Super Admin')->comment('Admin|SuperAdmin');
+            $table->rememberToken();
             $table->timestamps();
-
         });
     }
 
