@@ -7,14 +7,16 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\Product;
+use App\Models\Slider;
 
 class PagesController extends Controller
 {
     public function index()
     {
+      $sliders = Slider::orderBy('priority', 'asc')->get();
       $products = Product::orderBy('id', 'desc')->paginate(10);
 
-      return view('frontend.pages.index', compact('products'));
+      return view('frontend.pages.index', compact('products', 'sliders'));
     }
 
     public function contact()

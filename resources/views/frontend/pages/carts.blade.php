@@ -19,12 +19,14 @@
             </tr>
         </thead>
         <tbody>
+            {{ $sub_total_price = 0 }}
             {{ $total_price = 0 }}
             @foreach(App\Models\Cart::totalCarts() as $cart)
             <tr>
                 <td> {{ $loop->index + 1 }} </td>
                 <td>
-                    <a href="{{ route('products.show', $cart->product->slug) }}"> {{ $cart->product->title }} </a>
+                    <a href="{{ route('products.show', $cart->product->slug) }}">
+                        {{ $cart->product->title }} </a>
                 </td>
 
                 <td>
@@ -49,7 +51,7 @@
                 $total_price = $cart->product->price * $cart->product_quantity;
                 @endphp
                 <td>
-                    {{ $cart->product->price * $cart->product_quantity }}$
+                    {{ $total_price }}$
                 </td>
 
                 <td>
@@ -61,14 +63,18 @@
                 </td>
 
             </tr>
+            @php
+            $sub_total_price += $total_price;
+            @endphp
             @endforeach
             <tr>
                 <td colspan="4"></td>
                 <td>
                     Total Amount:
                 </td>
+
                 <td>
-                    <strong>{{ $total_price }}</strong>
+                    <strong>{{ $sub_total_price }}</strong>
                 </td>
             </tr>
         </tbody>

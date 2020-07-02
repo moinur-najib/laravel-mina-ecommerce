@@ -166,6 +166,35 @@ footer {
     height: 2.5rem;
 } */
 
+
+.carousel-indicators li {
+    position: relative;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    width: 20px;
+    height: 20px;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    border-radius: 50%;
+    background-color: hsl(194, 98%, 44%);
+}
+
+.carousel-caption h5 {
+    color: black;
+    font: bold;
+    padding: 10px;
+
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+}
+
+.carousel-control-prev-icon {
+    color: black;
+}
+
 footer {
     margin-top: 50rem;
     padding: 40px;

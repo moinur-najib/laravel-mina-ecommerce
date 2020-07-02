@@ -63,8 +63,12 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'Backend\OrdersController@index')->name('admin.orders');
     Route::get('/view/{id}', 'Backend\OrdersController@show')->name('admin.order.show');
     Route::post('/delete/{id}', 'Backend\OrdersController@delete')->name('admin.order.delete');
+
     Route::post('/completed/{id}', 'Backend\OrdersController@completed')->name('admin.order.completed');
     Route::post('/paid/{id}', 'Backend\OrdersController@paid')->name('admin.order.paid');
+    Route::post('/charge-update/{id}', 'Backend\OrdersController@chargeUpdate')->name('admin.order.charge');
+
+    Route::get('/invoice/{id}', 'Backend\OrdersController@generateInvoice')->name('admin.order.invoice');
   });
 
   Route::group(['prefix' => '/categories'], function () {
@@ -115,6 +119,14 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/district/edit/{id}', 'Backend\DistrictsController@update')->name('admin.district.update');
     Route::post('/district/delete/{id}', 'Backend\DistrictsController@delete')->name('admin.district.delete');
   });
+
+  Route::group(['prefix' => '/sliders'], function () {
+
+    Route::get('/', 'Backend\SlidersController@index')->name('admin.sliders');
+    Route::post('/store', 'Backend\SlidersController@store')->name('admin.slider.store');
+    Route::post('/slider/edit/{id}', 'Backend\SlidersController@update')->name('admin.slider.update');
+    Route::post('/slider/delete/{id}', 'Backend\SlidersController@delete')->name('admin.slider.delete');
+  });
 });
 Route::group(['prefix' => '/user'], function () {
   Route::get('/token/{token}', 'Frontend\VerificationController@verify')->name('user.verification');
@@ -141,3 +153,9 @@ Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// API Routes
+
+Route::get('get-districts/{id}', function ($id) {
+    return json_encode(App\Models\District::where('division_id', $id)->get());
+});

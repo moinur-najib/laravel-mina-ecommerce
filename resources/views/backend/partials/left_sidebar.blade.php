@@ -88,6 +88,20 @@
          </li>
 
          <li class="nav-item">
+             <a class="nav-link" data-toggle="collapse" href="#slider-pages" aria-expanded="false"
+                 aria-controls="general-pages"> <img class="menu-icon" src="/images/menu_icons/08.png"> <span
+                     class="menu-title">Manage Sliders</span><i class="menu-arrow"></i></a>
+             <div class="collapse" id="slider-pages">
+                 <ul class="nav flex-column sub-menu">
+
+                     <li class="nav-item"> <a class="nav-link" href="{{ route('admin.sliders') }}">Manage
+                             Sliders</a></li>
+                 </ul>
+             </div>
+         </li>
+
+
+         <li class="nav-item">
              <a class="nav-link" data-toggle="collapse" href="#district-pages" aria-expanded="false"
                  aria-controls="general-pages"> <img class="menu-icon" src="/images/menu_icons/08.png"> <span
                      class="menu-title">Manage Districts</span><i class="menu-arrow"></i></a>

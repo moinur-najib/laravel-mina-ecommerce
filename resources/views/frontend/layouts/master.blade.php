@@ -6,7 +6,7 @@
     <title>
         @yield('title', 'laravel ecommerce project')
     </title>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('frontend.partials.styles')
 </head>
 
@@ -15,9 +15,6 @@
     <div class="wrapper">
         @include('frontend.partials.nav')
         @include('frontend.partials.messages')
-        <!-- <canvas></canvas>
-
-        <script src="{{ asset('js/canvas.js') }}"></script> -->
         @yield('content')
 
         @include('frontend.partials.footer')

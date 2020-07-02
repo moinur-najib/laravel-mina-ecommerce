@@ -6,6 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Order;
+// use PDF;
+use PDF;
+
+use LaravelDaily\Invoices\Invoice;
+use LaravelDaily\Invoices\Classes\Buyer;
+use LaravelDaily\Invoices\Classes\InvoiceItem;
 
 class OrdersController extends Controller
 {
@@ -39,6 +45,53 @@ class OrdersController extends Controller
         $order->save();
         session()->flash('success', 'Order completed status changed');
         return back();
+    }
+
+    public function chargeUpdate(Request $request, $id)
+    {
+        $order = Order::find($id);
+
+        $order->shipping_charge = $request->shipping_charge;
+        $order->custom_discount = $request->custom_discount;
+        $order->save();
+
+        session()->flash('success', 'Order charge and discount changed');
+        return back();
+    }
+
+    /**
+     * generate Invoice
+     * 
+     * @param [type] $id [description]
+     * @param [type]     [description]
+     */
+    // public function generateInvoice ($id)
+    // {
+    //    $customer = new Buyer([
+    //         'name'          => 'John Doe',
+    //         'custom_fields' => [
+    //             'email' => 'test@example.com',
+    //         ],
+    //     ]);
+
+    //     $item = (new InvoiceItem())->title('Service 1')->pricePerUnit(2);
+
+    //     $invoice = Invoice::make()
+    //         ->buyer($customer)
+    //         ->discountByPercent(10)
+    //         ->addItem($item);
+
+    //     return $invoice->stream();
+    // }
+
+     public function generateInvoice ($id)
+    {
+        $order = Order::find($id);
+
+        $pdf = PDF::loadView('backend.pages.orders.invoice');
+
+        $pdf->download('invoice.pdf');
+        return $pdf->stream('invoice.pdf');
     }
 
     public function paid($id)

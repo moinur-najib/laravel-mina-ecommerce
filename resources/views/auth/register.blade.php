@@ -95,7 +95,7 @@
                                 class="col-md-4 col-form-label text-md-right">{{ __('Division') }}</label>
 
                             <div class="col-md-6">
-                                <select class="form-control" name="division_id">
+                                <select class="form-control" name="division_id" id="division_id">
                                     <option value="">Please select your division</option>
 
                                     @foreach ($divisions as $division)
@@ -110,12 +110,8 @@
                                 class="col-md-4 col-form-label text-md-right">{{ __('District') }}</label>
 
                             <div class="col-md-6">
-                                <select class="form-control" name="district_id">
-                                    <option value="">Please select your district</option>
+                                <select class="form-control" name="district_id" id="district-area">
 
-                                    @foreach ($districts as $district)
-                                    <option value=" {{ $district->id }} "> {{ $district->name }} </option>
-                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -163,4 +159,26 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script src=" {{ asset('js/jquery-3.5.1.min.js') }} "></script>
+<script>
+    $("#division_id").change(function () {
+        var division = $("#division_id").val();
+
+        // Send an ajax request to server with this division
+        $("#district-area").html("");
+        var option = "";
+        $.get("http://127.0.0.1:8000/get-districts/" + division, function (data) {
+
+            data = JSON.parse(data);
+            data.forEach(function (element) {
+                option += "<option value='" + element.id + "'>" + element.name + "</option>";
+            });
+            $("#district-area").html(option);
+        });
+    })
+
+</script>
 @endsection
