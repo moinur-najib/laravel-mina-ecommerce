@@ -65,33 +65,17 @@ class OrdersController extends Controller
      * @param [type] $id [description]
      * @param [type]     [description]
      */
-    // public function generateInvoice ($id)
-    // {
-    //    $customer = new Buyer([
-    //         'name'          => 'John Doe',
-    //         'custom_fields' => [
-    //             'email' => 'test@example.com',
-    //         ],
-    //     ]);
 
-    //     $item = (new InvoiceItem())->title('Service 1')->pricePerUnit(2);
-
-    //     $invoice = Invoice::make()
-    //         ->buyer($customer)
-    //         ->discountByPercent(10)
-    //         ->addItem($item);
-
-    //     return $invoice->stream();
-    // }
-
-     public function generateInvoice ($id)
+    public function generateInvoice ($id)
     {
         $order = Order::find($id);
 
-        $pdf = PDF::loadView('backend.pages.orders.invoice');
-
-        $pdf->download('invoice.pdf');
+        // return view('backend.pages.orders.invoice', compact('order'));
+        $pdf = PDF::loadView('backend.pages.orders.invoice', compact('order'));
+        
         return $pdf->stream('invoice.pdf');
+
+        // return $pdf->download('invoice.pdf');
     }
 
     public function paid($id)

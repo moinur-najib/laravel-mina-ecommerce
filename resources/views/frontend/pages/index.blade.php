@@ -49,7 +49,6 @@
 
     <div class="our-slider">
 
-
         <div class="row">
             <div class="col-md-4">
                 @include('frontend.partials.product-sidebar')
