@@ -75,17 +75,19 @@ class ProductController extends Controller
       // }
 
       if(count($request->product_image) > 0) {
+        $i = 0;
         foreach($request->product_image as $image) {
           // insert image
           // $image = $request->file('product_image');
-          $img = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path('images/products/' .$img);
+          $img = time() . $i .'.' . $image->getClientOriginalExtension();
+          $location = 'images/products/' .$img;
           Image::make($image)->save($location);
 
           $product_image = new ProductImage;
           $product_image->product_id = $product->id;
           $product_image->image = $img;
           $product_image->save();
+          $i++;
         }
       }
 
@@ -124,6 +126,16 @@ class ProductController extends Controller
       $product = Product::find($id);
       if(!is_null($product)) {
         $product->delete();
+      }
+      // Delete all images
+      foreach($product->images as $img) {
+        $img->delete();
+        // Delete from path
+        $file_name = $img->image;
+        if(file_exists("images/products/". $file_name)) {
+            unlink("images/products/".$file_name);
+        }
+        $img->delete();
       }
       session()->flash('success', 'The product has been deleted');
       return back();

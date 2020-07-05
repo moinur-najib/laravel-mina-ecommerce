@@ -1,5 +1,5 @@
 /*
- * My Own Custom Properites
+ * Custom Properites
  */
 
 html {
@@ -30,19 +30,24 @@ canvas {
     border: 1px solid black;
 }
 
+/* .sticky-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+} */
+
 
 
 /* Navbar */
-
 .navbar {
     overflow: hidden;
-    background: rgb(54, 118, 255) !important;
+    display: block;
+    margin-top: 0px;
+    background: black !important;
 }
 
 .navbar-brand {
     color: white !important;
-    display: inline;
-    margin-left: 100px;
 }
 
 .nav-link {
@@ -66,10 +71,6 @@ canvas {
     color: white;
 }
 
-.nav-register {
-    margin-right: 100px;
-}
-
 .btn-cart-nav:hover {
     background: inherit !important;
 }
@@ -83,35 +84,7 @@ canvas {
 }
 
 .bg-light {
-    background-color: rgb(38, 107, 255) !important;
-}
-
-.nav-link:hover {
-    color: black !important;
-    background-color: white;
-    border-radius: 5px;
-}
-
-.navbar-dark .navbar-nav .nav-link {
-    color: #fff;
-    padding-right: 15px;
-    margin-right: 5px;
-}
-
-/* .btn-cart-nav:hover {
-    color: black !important;
-    background-color: red;
-    border-radius: 5px;
-} */
-
-
-.navbar-dark .navbar-nav .show>.nav-link,
-.navbar-dark .navbar-nav .active>.nav-link,
-.navbar-dark .navbar-nav .nav-link.show,
-.navbar-dark .navbar-nav .nav-link.active {
-    color: black !important;
-    background-color: white;
-    border-radius: 5px;
+    background-color: rgb(21, 84, 221) !important;
 }
 
 /* Navbar */
@@ -178,17 +151,58 @@ canvas {
     max-height: 200px;
 }
 
+/* .footer-bottom {
+    padding: 20px;
+    margin-top: 20px;
+    background: #262626;
+    color: #fff;
+} */
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 17px;
+    background: #262626;
+    color: #fff;
+}
+
 .product-item {
     background: lightblue;
 }
 
 /* Product Cards */
 
-/* Carousel Slider */
+/* Footer */
+
+/* footer {
+    position: absolute;
+    bottom: 0;
+    padding: 40px;
+    padding-bottom: 50px;
+    width: 100%;
+    height: 2.5rem;
+} */
+
+
+
+
+
 
 .carousel-control-prev-icon {
     color: black;
 }
+
+/* footer {
+    margin-top: 50rem;
+    padding: 40px;
+    padding-bottom: 50px;
+    width: 100%;
+    height: 2.5rem;
+} */
+
+/* Bootstrap overrides */
 
 .carousel-indicators li {
     position: relative;
@@ -214,17 +228,30 @@ canvas {
     background-clip: padding-box;
 }
 
-/* Carousel Slider */
+.nav-link:hover {
+    color: black !important;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: black;
+    padding-right: 15px;
+    margin-right: 5px;
+}
+
+/* .btn-cart-nav:hover {
+    color: black !important;
+    background-color: red;
+    border-radius: 5px;
+} */
 
 
-/* Footer */
-
-.footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding-top: 20px;
-    padding-bottom: 17px;
-    background: #262626;
-    color: #fff;
+.navbar-dark .navbar-nav .show>.nav-link,
+.navbar-dark .navbar-nav .active>.nav-link,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: black !important;
+    background-color: white;
+    border-radius: 5px;
 }

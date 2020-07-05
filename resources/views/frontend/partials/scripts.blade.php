@@ -15,7 +15,7 @@
 
     function addToCart(product_id) {
         var url = "{{ url('/') }}";
-        $.post(url + "api/cart/store", {
+        $.post(url + "/api/cart/store", {
                 product_id: product_id
             })
             .done(function (data) {

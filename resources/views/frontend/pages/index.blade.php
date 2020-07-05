@@ -55,11 +55,12 @@
             </div>
 
             <div class="col-md-8">
-                <div class="widget">
+                <div class="widget" style="margin-bottom: 100px;">
                     <h3>Featured Products</h3>
                     @include('frontend.pages.product.partials.all_products')
                 </div>
                 <div class="widget">
+
                 </div>
             </div>
         </div>

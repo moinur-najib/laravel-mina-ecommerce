@@ -1,7 +1,9 @@
 @extends('frontend.layouts.master')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container mb-5">
+    <div class="row justify-content-center" style="margin-top: 160px!important;margin-bottom: 310px!important;  margin: auto;
+  width: 95%;
+  padding: 10px;">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>

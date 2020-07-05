@@ -17,11 +17,8 @@
         @include('frontend.partials.messages')
         @yield('content')
 
-        @include('frontend.partials.footer')
-
-
-
     </div>
+    @include('frontend.partials.footer')
 
     @include('frontend.partials.scripts')
     @yield('scripts')

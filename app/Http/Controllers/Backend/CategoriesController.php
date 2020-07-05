@@ -50,7 +50,7 @@ class CategoriesController extends Controller
         if($request->hasFile('image')) {
             $image = $request->file('image');
             $img = time() . '.' . $image->getClientOriginalExtension();
-            $location = public_path('images/categories/' .$img);
+            $location = 'images/categories/' .$img;
             Image::make($image)->save($location);
             $category->image = $img;
             $category->save();
@@ -126,7 +126,7 @@ class CategoriesController extends Controller
             }
             $image = $request->file('image');
             $img = time() . '.' . $image->getClientOriginalExtension();
-            $location = public_path('images/categories/' .$img);
+            $location = 'images/categories/' .$img;
             Image::make($image)->save($location);
             $category->image = $img;
             $category->save();

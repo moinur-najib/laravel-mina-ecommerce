@@ -84,7 +84,7 @@
         <a href="{{ route('products') }}" class="btn btn-primary btn-lg">Continue Shopping</a>
         <a href="{{ route('checkouts') }}" class="btn btn-warning btn-lg">Checkout</a>
     </div>
-
+    <div class="clearfix"></div>
     @else
 
     <div class="alert alert-warning">

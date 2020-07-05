@@ -170,7 +170,8 @@
         // Send an ajax request to server with this division
         $("#district-area").html("");
         var option = "";
-        $.get("http://127.0.0.1:8000/get-districts/" + division, function (data) {
+        var url = "{{ url('/') }}";
+        $.get(url + "/get-districts/" + division, function (data) {
 
             data = JSON.parse(data);
             data.forEach(function (element) {

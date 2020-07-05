@@ -62,7 +62,7 @@ class SlidersController extends Controller
       if($request->image > 0) {
          $image = $request->file('image');
             $img = time() . '.' . $image->getClientOriginalExtension();
-            $location = public_path('images/sliders/' .$img);
+            $location = 'images/sliders/' .$img;
             Image::make($image)->save($location);
             $slider->image = $img;
       }
@@ -103,7 +103,7 @@ class SlidersController extends Controller
         }
          $image = $request->file('image');
             $img = time() . '.' . $image->getClientOriginalExtension();
-            $location = public_path('images/sliders/' .$img);
+            $location = 'images/sliders/' .$img;
             Image::make($image)->save($location);
             $slider->image = $img;
       }
