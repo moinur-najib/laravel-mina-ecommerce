@@ -9,7 +9,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto mt-3">
+        <ul class="navbar-nav mr-auto mt-3 nav-item-list">
             <li class="nav-item {{ Route::is('index') ? 'active' : ''}}" id="nav-link">
                 <a class="nav-link" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
             </li>
@@ -36,10 +36,10 @@
             </li>
         </ul>
 
-        <ul class="navbar-nav mt-3">
+        <ul class="navbar-nav mt-2 nav-login-section">
             <li class="nav-item">
-                <a class="nav-link btn-cart-nav" href="{{ route('carts') }}">
-                    <button class="btn btn-primary">
+                <a href="{{ route('carts') }}">
+                    <button class="btn btn-cart-nav">
                         <p class="d-inline">Cart</p>
 
                         <span class="badge badge-danger" id="totalItems">
