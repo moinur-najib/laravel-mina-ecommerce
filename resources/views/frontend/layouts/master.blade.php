@@ -18,7 +18,6 @@
         @yield('content')
 
     </div>
-    @include('frontend.partials.footer')
 
     @include('frontend.partials.scripts')
     @yield('scripts')

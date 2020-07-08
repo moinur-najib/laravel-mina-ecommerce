@@ -206,29 +206,33 @@ canvas {
     padding-top: 20px;
 }
 
-.sidebar-menu-title {
+i.sidebar-arrows {
     color: black;
-    font-weight: lighter;
 }
 
 .product-sidebar .parent-img {
-    width: 50px;
+    width: 40px;
     min-height: 45px;
     max-height: 45px;
     margin-left: 10px;
     margin-right: 15px;
 }
 
+.product-sidebar .sidebar-menu-title {
+    color: rgb(43, 43, 43);
+}
+
 .product-sidebar .child-img {
     width: 45px;
-    margin-right: 5px;
+    margin-left: 30px;
 }
 
 .product-sidebar .child-title {
     color: black;
 }
 
-.product-sidebar .child-rows {
+/* .product-sidebar .child-rows {
+    margin-left: 30px;
     padding-left: 20px;
     border-left: 1px solid #dfdfdf;
     background: rgb(54, 118, 255) !important;
@@ -236,7 +240,7 @@ canvas {
 
 .product-sidebar .child-rows a.list-group-item {
     border-left: 0px !important;
-}
+} */
 
 /* Product Sidebar */
 
@@ -288,7 +292,6 @@ canvas {
     position: relative;
     bottom: 0;
     width: 100%;
-    margin-top: 2000px;
     padding-top: 20px;
     padding-bottom: 17px;
     background: #262626;
