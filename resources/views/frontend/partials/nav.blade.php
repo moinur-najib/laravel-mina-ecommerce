@@ -11,30 +11,36 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto mt-3 nav-item-list">
             <li class="nav-item {{ Route::is('index') ? 'active' : ''}}" id="nav-link">
-                <a class="nav-link" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link nav-list-link" href="{{ route('index') }}">Home <span
+                        class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item {{ Route::is('products') ? 'active' : ''}}" id="nav-link">
-                <a class="nav-link" href="{{ route('products') }}">Products</a>
+                <a class="nav-link nav-list-link" href="{{ route('products') }}">Products</a>
             </li>
             <li class="nav-item {{ Route::is('contacts') ? 'active' : ''}}" id="nav-link">
-                <a class="nav-link" href="{{ route('contacts') }}">Contact</a>
+                <a class="nav-link nav-list-link" href="{{ route('contacts') }}">Contact</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.index') }}">Admin</a>
+                <a class="nav-link nav-list-link" href="{{ route('admin.index') }}">Admin</a>
             </li>
             <li class="nav-item">
-                <form class="form-inline my-2 my-lg-0 w-100 text-center" action="{{ route('search') }}" method="get">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" name="search" placeholder="Search Products"
-                            aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary search-navbar-btn" type="submit"><i
-                                    class="fa fa-search"></i></button>
+                <div class="nav-search-bar-btn">
+                    <form class="form-inline my-2 my-lg-0 w-100 text-center" action="{{ route('search') }}"
+                        method="get">
+                        <div class="input-group mb-3 nav-search">
+                            <input type="text" class="form-control nav-search-bar" name="search"
+                                placeholder="Search Products" aria-label="Recipient's username"
+                                aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary search-navbar-btn" type="submit"><i
+                                        class="fa fa-search"></i></button>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </li>
         </ul>
+
 
         <ul class="navbar-nav mt-2 nav-login-section">
             <li class="nav-item">
@@ -50,11 +56,11 @@
             </li>
             @guest
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                <a class="nav-link nav-list-link" href="{{ route('login') }}">{{ __('Login') }}</a>
             </li>
             @if (Route::has('register'))
             <li class="nav-item nav-register">
-                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                <a class="nav-link nav-list-link" href="{{ route('register') }}">{{ __('Register') }}</a>
             </li>
             @endif
             @else

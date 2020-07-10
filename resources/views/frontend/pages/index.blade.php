@@ -54,19 +54,24 @@
 <div class='products-wrapper'>
     <div class="row">
 
-        <div class="col-md-2 page-product-sidebar">
+        <div class="col-lg-2 col-md-4 page-product-sidebar">
             @include('frontend.partials.product-sidebar')
         </div>
 
-        <div class="col-lg-8 col-md-10">
+        <div>
             <div class="widget">
-                <h3>Products</h3>
-                <div class="row">
-                    @include('frontend.pages.product.partials.all_products')
+                <h3 class="text-center h1" style="font-family: 'Roboto', sans-serif;">Products</h3>
+                <div class="container">
+                    <div class="row" style="margin-left: 125px;">
+
+                        @include('frontend.pages.product.partials.all_products')
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- End Sidebar + Content -->
+
 @endsection

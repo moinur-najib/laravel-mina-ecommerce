@@ -48,7 +48,8 @@
                 corporis blanditiis, ipsa, expedita ad ea, ex ducimus enim ab. Modi non eveniet aperiam.</p>
         </div>
     </div>
-    @include('frontend.partials.footer')
-
 </div>
+
+@include('frontend.partials.footer')
+
 @endsection
