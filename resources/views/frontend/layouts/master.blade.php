@@ -17,10 +17,10 @@
         @include('frontend.partials.nav')
         @include('frontend.partials.messages')
         @yield('content')
-
     </div>
 
     @include('frontend.partials.scripts')
+
     @yield('scripts')
 
 </body>

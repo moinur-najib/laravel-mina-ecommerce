@@ -1,66 +1,60 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-light sticky-top">
-
-    <a class="navbar-brand" href="{{ route('index') }}">
-        <img src=" {{ asset('images/logo.png') }} ">
+<nav class="navbar navbar-expand-md navbar-background sticky-top">
+    <a>
+        <i class="fa fa-bar" id="sidebar-hamburger-icon"></i>
     </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    <div class="navbar-brand">
+        Shop
+    </div>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto mt-3 nav-item-list">
-            <li class="nav-item {{ Route::is('index') ? 'active' : ''}}" id="nav-link">
-                <a class="nav-link nav-list-link" href="{{ route('index') }}">Home <span
-                        class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item {{ Route::is('products') ? 'active' : ''}}" id="nav-link">
-                <a class="nav-link nav-list-link" href="{{ route('products') }}">Products</a>
-            </li>
-            <li class="nav-item {{ Route::is('contacts') ? 'active' : ''}}" id="nav-link">
-                <a class="nav-link nav-list-link" href="{{ route('contacts') }}">Contact</a>
-            </li>
+        <ul class="navbar-nav">
+
             <li class="nav-item">
-                <a class="nav-link nav-list-link" href="{{ route('admin.index') }}">Admin</a>
+                <a class="nav-link navbar-link" href="{{ route('index') }}">Home</a>
             </li>
+
             <li class="nav-item">
-                <div class="nav-search-bar-btn">
-                    <form class="form-inline my-2 my-lg-0 w-100 text-center" action="{{ route('search') }}"
-                        method="get">
-                        <div class="input-group mb-3 nav-search">
-                            <input type="text" class="form-control nav-search-bar" name="search"
-                                placeholder="Search Products" aria-label="Recipient's username"
-                                aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary search-navbar-btn" type="submit"><i
-                                        class="fa fa-search"></i></button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                <a class="nav-link navbar-link" href="{{ route('products') }}">Products</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link navbar-link" href="{{ route('contacts') }}">Contact Us</a>
+            </li>
+
+            <li class="nav-item">
+                <form class="form-inline my-2 my-lg-0" action="{{ route('search') }}">
+                    <div class="input-group">
+                        <input type='text' class="form-control search-form" placeholder="Search Products">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn search-btn">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
             </li>
         </ul>
 
-
-        <ul class="navbar-nav mt-2 nav-login-section">
-            <li class="nav-item">
-                <a href="{{ route('carts') }}">
-                    <button class="btn btn-cart-nav">
-                        <p class="d-inline">Cart</p>
-
-                        <span class="badge badge-danger" id="totalItems">
-                            {{ App\Models\Cart::totalItems() }}
-                        </span>
-                    </button>
-                </a>
-            </li>
+        <ul class="navbar-nav ml-auto">
+            <a href="#" class="nav-cart-btn">Cart
+                <span class="nav-cart-quantity">{{ App\Models\Cart::totalItems() }}
+                </span>
+            </a>
             @guest
+
             <li class="nav-item">
-                <a class="nav-link nav-list-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                <a class="nav-link navbar-link" href="{{ route('login') }}">Login</a>
             </li>
+
             @if (Route::has('register'))
-            <li class="nav-item nav-register">
-                <a class="nav-link nav-list-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+            <li class="nav-item">
+                <a class="nav-link navbar-link" href="{{ route('register') }}">Register</a>
             </li>
             @endif
             @else
@@ -87,7 +81,7 @@
                 </div>
             </li>
             @endguest
-        </ul>
 
+        </ul>
     </div>
 </nav>

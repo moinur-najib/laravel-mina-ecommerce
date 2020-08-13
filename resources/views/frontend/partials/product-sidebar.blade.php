@@ -1,13 +1,34 @@
  <!-- partial:partials/_sidebar.html -->
+ <!-- <a class="top-bar">
+     <i class="fa fa-bars" style="visibility: visible;"></i>
+ </a> -->
+
+ <nav class="sidebar sidebar-offcanvas mb-0" id="sidebar">
+
+     <li class="nav-item">
+         @php $i = 0 @endphp
+
+         @foreach (App\Models\Category::orderBy('name', 'asc')->where('parent_id', NULL)->get() as $parent)
+         <div id="product-sidebar-{{ $parent->id }}">
+
+             <a href="#main-{{ $parent->id }}" class="nav-link" data-toggle="collapse">
+                 <img class="parent-img" src="{{ asset('images/categories/'.$parent->image) }}" alt="">
+                 <span style="color: #fff;">
+                     {{ $parent->name }}
+                 </span>
+                 <span class="fa fa-caret-down product-sidebar-icons category-{{ $parent->id }}"></span>
+             </a>
+         </div>
+         @endforeach
+
+     </li>
+
+ </nav>
+
+ <!-- 
  <nav class="product-sidebar sidebar sidebar-offcanvas" id="sidebar">
      <ul class="nav">
          <li class="nav-item">
-             <!-- @foreach (App\Models\Category::orderBy('name', 'asc')->where('parent_id', NULL)->get() as $parent)
-             <a href="#main-{{ $parent->id }}" class="list-group-item list-group-item-action" data-toggle="collapse">
-                 <img class="parent-img" src="{{ asset('images/categories/'.$parent->image) }}" alt="">
-                 {{ $parent->name }}
-             </a>
-             @endforeach -->
              @php $i = 0 @endphp
              @foreach (App\Models\Category::orderBy('name', 'asc')->where('parent_id', NULL)->get() as $parent)
              <div id="product-sidebar-{{ $parent->id }}">
@@ -54,52 +75,52 @@
              @endforeach
          </li>
      </ul>
- </nav>
+ </nav> -->
 
  @section('scripts')
  <script>
      $("#product-sidebar-1").on("click", function () {
-         $(".category-1").toggleClass("rotate")
+         $(".category-1").toggleClass("fa-rotate-180")
      });
 
      $("#product-sidebar-2").on("click", function () {
-         $(".category-2").addClass("rotate")
+         $(".category-2").addClass("fa-rotate-180")
      });
 
      $("#product-sidebar-3").on("click", function () {
-         $(".category-3").addClass("rotate")
+         $(".category-3").addClass("fa-rotate-180")
      });
 
      $("#product-sidebar-4").on("click", function () {
-         $(".category-4").addClass("rotate")
+         $(".category-4").addClass("fa-rotate-180")
      });
 
      $("#product-sidebar-5").on("click", function () {
-         $(".category-5").addClass("rotate")
+         $(".category-5").addClass("fa-rotate-180")
      });
 
      $("#product-sidebar-6").on("click", function () {
-         $(".category-6").addClass("rotate")
+         $(".category-6").addClass("fa-rotate-180")
      });
 
      $("#product-sidebar-7").on("click", function () {
-         $(".category-7").addClass("rotate")
+         $(".category-7").addClass("fa-rotate-180")
      });
 
      $("#product-sidebar-7").on("click", function () {
-         $(".category-7").addClass("rotate")
+         $(".category-7").addClass("fa-rotate-180")
      });
 
      $("#product-sidebar-8").on("click", function () {
-         $(".category-8").addClass("rotate")
+         $(".category-8").addClass("fa-rotate-180")
      });
 
      $("#product-sidebar-9").on("click", function () {
-         $(".category-9").addClass("rotate")
+         $(".category-9").addClass("fa-rotate-180")
      });
 
      $("#product-sidebar-10").on("click", function () {
-         $(".category-10").addClass("rotate")
+         $(".category-10").addClass("fa-rotate-180")
      });
 
  </script>
